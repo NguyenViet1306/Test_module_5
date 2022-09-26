@@ -1,0 +1,104 @@
+<h2>List Tour</h2>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Price</th>
+    <th scope="col">Description</th>
+    <th scope="col" colspan="3">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of tours">
+    <td>{{t.title}}</td>
+    <td>{{t.price}}</td>
+    <td>{{t.description}}</td>
+    <td><button (click)="update(t.id)">Update</button></td>
+    <td><button (click)="delete(t.id)">Delete</button></td>
+    <td><button (click)="detail(t.id)">Detail</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>Title</th>-->
+<!--    <th>Price</th>-->
+<!--    <th>Description</th>-->
+
+<!--    <th colspan="2">Action</th>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let t of tours">-->
+<!--    <td>{{t.title}}</td>-->
+<!--    <td>{{t.price}}</td>-->
+<!--    <td>{{t.description}}</td>-->
+
+<!--    <td><button (click)="update(t.id)">Update</button></td>-->
+<!--    <td><button (click)="delete(t.id)">Delete</button></td>-->
+<!--    <td><button (click)="detail(t.id)">Detail</button></td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+<form [formGroup]="formCreate" >
+  <h2>From Create</h2>
+  <table>
+    <tr>
+      <th>Title</th>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td><input type="text" formControlName="price"></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <th colspan="2"></th>
+      <button type="submit" (click)="create()">Create</button>
+    </tr>
+  </table>
+</form>
+
+
+<form [formGroup]="formUpdate"  *ngIf="idUpdate != null" id="formUpdate">
+  <h2>From Create</h2>
+  <table>
+    <tr>
+      <th>Title</th>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td><input type="text" formControlName="price"></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <th colspan="2"></th>
+      <button type="submit" (click)="updateTour()">Update</button>
+    </tr>
+  </table>
+</form>
+
+
+<div id="detail" hidden>
+  <h2> Detail Product </h2>
+  <table>
+    <tr>
+      <td>Name : {{titleDetail}}</td>
+    </tr>
+    <tr>
+      <td>Price : {{priceDetail}}</td>
+    </tr>
+    <tr>
+      <td>Amount : {{descriptionDetail}}</td>
+    </tr>
+  </table>
+  <button (click)="closeDetail()">close</button>
+</div>

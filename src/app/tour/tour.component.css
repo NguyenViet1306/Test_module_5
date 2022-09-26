@@ -1,0 +1,19 @@
+#display {
+  width: 400px;
+  border: 1px solid;
+  border-collapse: collapse;
+  margin-left: 450px;
+}
+
+#display tr, #display th, #display td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+h2 {
+  margin-left: 550px;
+}
+
+form {
+  margin-left: 450px;
+}
